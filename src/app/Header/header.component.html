@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" (click)="collapse = !collapse">
+      <span class="icon-bar" *ngFor="let iconBar of [1, 2, 4]"></span>
+    </button>
+    <a class="navbar-brand">Receipes Book</a>
+  </div>
+  <div
+    class="navbar-collapse"
+    [class.collapse]="collapse"
+    (window.reszie)="collapse = true"
+  >
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/recipes']">Receipes</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/auth']" *ngIf="!isAuthenticated">Authenticate</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/shoppinglist']">Shopping list</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li style="cursor: pointer" *ngIf="isAuthenticated" (click)="onLogout()">
+        <a>Logout</a>
+      </li>
+      <li class="dropdown" appDropDown>
+        <a style="cursor: pointer" class="dropdown-toggle"
+          >Manage <span class="caret"></span
+        ></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a style="cursor: pointer" (click)="onSaveData()">Save data</a>
+          </li>
+          <li>
+            <a style="cursor: pointer" (click)="onFetchData()">Fetch data</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
