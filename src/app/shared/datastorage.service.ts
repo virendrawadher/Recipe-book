@@ -12,8 +12,7 @@ import { RecipesService } from '../recepies/recepies.service';
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private recipeService: RecipesService,
-    private authService: AuthService
+    private recipeService: RecipesService
   ) {}
 
   saveData() {

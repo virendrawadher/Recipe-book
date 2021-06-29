@@ -6,9 +6,8 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService, AuthInterface } from './auth.service';
-import { User } from './user.model';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceHolderDirective } from '../shared/placeholder/placholder.directive';
 
