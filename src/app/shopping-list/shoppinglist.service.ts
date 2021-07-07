@@ -5,7 +5,10 @@ import { Ingredient } from '../shared/ingredinets.model';
 export class ShoppingListService {
   ingredientChanged = new Subject<Ingredient[]>();
   editSelectedIngrident = new Subject<number>();
-  private ingredient: Ingredient[] = [new Ingredient('Apples', 10)];
+  private ingredient: Ingredient[] = [
+    new Ingredient('Apples', 10),
+    new Ingredient('Watermelon', 20),
+  ];
 
   getIngredient() {
     return this.ingredient.slice();
@@ -25,10 +28,10 @@ export class ShoppingListService {
     this.ingredientChanged.next(this.ingredient.slice());
   }
 
-  addToShoppingList(ingredient: Ingredient[]) {
-    this.ingredient.push(...ingredient);
-    this.ingredientChanged.next(this.ingredient.slice());
-  }
+  // addToShoppingList(ingredient: Ingredient[]) {
+  //   this.ingredient.push(...ingredient);
+  //   this.ingredientChanged.next(this.ingredient.slice());
+  // }
 
   deleteSelectedIngredient(index: number) {
     this.ingredient.splice(index, 1);

@@ -8,6 +8,9 @@ import { HeaderComponent } from './Header/header.component';
 import { AppRouting } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import { StoreModule } from '@ngrx/store';
+import { ShoppingListReducer } from './shopping-list/shopping-list-store/shopping-list.reducer';
+import { appReducers } from './appStore/appReducer';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -17,6 +20,7 @@ import { CoreModule } from './core.module';
     AppRouting,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot(appReducers),
     SharedModule,
     CoreModule,
   ],
