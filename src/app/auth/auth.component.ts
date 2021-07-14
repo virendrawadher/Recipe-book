@@ -58,8 +58,8 @@ export class AuthComponent implements OnInit, OnDestroy {
     const email = authForm.value.email;
     const password = authForm.value.password;
 
-    let authObs: Observable<AuthInterface>;
-    this.isLoading = true;
+    // let authObs: Observable<AuthInterface>;
+    // this.isLoading = true;
     if (this.isLogin) {
       // authObs = this.authService.login(email, password);
       this.store.dispatch(new AuthActions.LoginStart({ email, password }));
@@ -88,7 +88,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.store.dispatch(new AuthActions.ClearError());
   }
 
-  alertComponent(message: string) {
+  private alertComponent(message: string) {
     const alertCompFactory =
       this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
 

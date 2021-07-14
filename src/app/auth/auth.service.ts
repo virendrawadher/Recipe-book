@@ -13,7 +13,6 @@ export interface AuthInterface {
   kind?: string;
   registered?: boolean;
 }
-
 @Injectable({
   providedIn: 'root',
 })

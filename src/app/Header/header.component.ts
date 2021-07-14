@@ -43,9 +43,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
   }
 
-  onSelect(feature: string) {
-    this.featureSelected.emit(feature);
-  }
+  // onSelect(feature: string) {
+  //   this.featureSelected.emit(feature);
+  // }
 
   onSaveData() {
     // this.dataStorageService.saveData();

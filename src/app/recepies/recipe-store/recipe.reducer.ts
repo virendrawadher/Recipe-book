@@ -17,7 +17,7 @@ export function RecipeFunction(
     case RecipeActions.SET_RECIPE:
       return {
         ...state,
-        recipes: [...action.payload],
+        recipes: action.payload,
       };
     case RecipeActions.ADD_RECIPE:
       return {
@@ -25,7 +25,6 @@ export function RecipeFunction(
         recipes: [...state.recipes, action.payload],
       };
     case RecipeActions.UPDATE_RECIPE:
-      console.log(action.payload);
       return {
         ...state,
         recipes: state.recipes.map((recipe, index) => {

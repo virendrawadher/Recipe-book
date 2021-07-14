@@ -28,6 +28,7 @@ const hanldeAuthentication = (
 ) => {
   const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
   const user = new User(email, localId, idToken, expirationDate);
+  const isUser = !!user;
   localStorage.setItem('userData', JSON.stringify(user));
   return new AuthActions.AuthenticateSuccess({
     email: email,
@@ -144,7 +145,7 @@ export class AuthEffects {
       ofType(AuthActions.AUTO_LOGIN),
       map(() => {
         const userData = JSON.parse(localStorage.getItem('userData'));
-        console.log(userData);
+        console.log(userData, 'user data');
         if (!userData) {
           return { type: 'DUMMY' };
         }

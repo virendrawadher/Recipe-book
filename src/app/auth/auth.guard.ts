@@ -15,6 +15,7 @@ import * as fromApp from '../appStore/appReducer';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
+  isAuth!: boolean;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -32,11 +33,15 @@ export class AuthGuard implements CanActivate {
       take(1),
       map((authState) => authState.user),
       map((user) => {
-        const isAuth = !!user;
+        const isAuth = JSON.parse(localStorage.getItem('isUser'));
+        console.log(isAuth, 'isAuth');
         if (isAuth) {
           return true;
+        } else {
+          console.log(this.router.createUrlTree(['/auth']));
+          return this.router.createUrlTree(['/auth']);
         }
-        return this.router.createUrlTree(['/auth']);
+        // return false;
       })
     );
   }

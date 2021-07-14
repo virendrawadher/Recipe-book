@@ -11,7 +11,7 @@ import { CoreModule } from './core.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { ShoppingListReducer } from './shopping-list/shopping-list-store/shopping-list.reducer';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appReducers } from './appStore/appReducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth/authStore/auth.effect';
@@ -21,7 +21,7 @@ import { RecipeEffects } from './recepies/recipe-store/recipe.effects';
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     AppRouting,
     ReactiveFormsModule,
@@ -32,6 +32,7 @@ import { RecipeEffects } from './recepies/recipe-store/recipe.effects';
     StoreRouterConnectingModule.forRoot(),
     SharedModule,
     CoreModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],
 })

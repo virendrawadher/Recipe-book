@@ -31,6 +31,7 @@ export class RecipeResolveService implements Resolve<Recepies[]> {
     // } else {
     //   return recipes;
     // }
+    console.log(new RecipeAction.FetchRecipe());
     return this.store.select('recipes').pipe(
       take(1),
       map((recipesState) => recipesState.recipes),
@@ -43,6 +44,5 @@ export class RecipeResolveService implements Resolve<Recepies[]> {
         }
       })
     );
-    console.log(new RecipeAction.FetchRecipe());
   }
 }
